@@ -24,6 +24,7 @@ minetest.register_on_player_hpchange(function(player, hp_change)
 	end
 	local hp = player:get_hp()
 	if hp + hp_change < 4 and hp + hp_change > 0 then
+		if not player then return end
 		for i, v in pairs(player:get_inventory():get_list("main")) do
 			if i <= 8 then
 				if v:get_name() == "bandage:bandage" then
